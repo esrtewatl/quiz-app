@@ -34,6 +34,8 @@ const Quiz = ({ questions }) => {
   };
 
   return (
+    <>
+    <h1>Intermediate Test for Front End Development</h1>
     <div className='body'>
       <div className="quiz">
         {showScore ? (
@@ -67,6 +69,7 @@ const Quiz = ({ questions }) => {
         )}
       </div>
     </div>
+    </>
   );
 };
 

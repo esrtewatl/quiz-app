@@ -9,7 +9,7 @@ const questions = [
       { answerText: ':nth-child(odd)', isCorrect: true },
       { answerText: ':odd', isCorrect: false },
       { answerText: ':even', isCorrect: false },
-      { answerText: 'London', isCorrect: false },
+      { answerText: ':nth-child(even)', isCorrect: false },
     ],
   },
   {
