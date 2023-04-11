@@ -2,6 +2,7 @@ import React from 'react';
 import Quiz from './Quiz';
 import './App.css';
 
+
 const questions = [
   {
     questionText: 'Which of the following selectors will select all the even-numbered children of an element?',
@@ -32,12 +33,12 @@ const questions = [
       },
 
   {
-    questionText: 'Which of the following is NOT a valid data type in JavaScript?',
+    questionText: 'What is the difference between client-side rendering and server-side rendering in web development?',
     answerOptions: [
-    { answerText: 'number', isCorrect: false },
-    { answerText: 'boolean', isCorrect: false },
+    { answerText: 'Client-side rendering is faster but less secure, while server-side rendering is slower but more secure.', isCorrect: false },
+    { answerText: 'Client-side rendering allows for faster updates and interactivity, while server-side rendering is better for SEO and initial load times.', isCorrect: true },
     { answerText: 'string', isCorrect: false },
-    { answerText: 'datetime', isCorrect: true },
+    { answerText: 'Client-side rendering is used for static websites, while server-side rendering is used for dynamic websites.', isCorrect: false },
     ],
     },
   
@@ -61,7 +62,15 @@ answerOptions: [
 { answerText: 'The function itself', isCorrect: false },
 ],
 },
-
+{
+  questionText: 'What is the purpose of the useEffect hook in React?',
+  answerOptions: [
+    { answerText: 'To manage component lifecycle events ', isCorrect: true },
+    { answerText: 'To declare state in a functional component', isCorrect: false },
+    { answerText: 'To manage routing in a React application', isCorrect: false },
+    { answerText: 'To manage global state across an entire application', isCorrect: false },
+  ],
+},
 
 {
 questionText: 'Which of the following is NOT a JavaScript data type?',
@@ -162,6 +171,24 @@ answerOptions: [
     ],
   },
   {
+    questionText: 'What is the difference between an array and an object in JavaScript? ',
+    answerOptions: [
+      { answerText: 'An array can only store primitive data types, while an object can store any data type ', isCorrect: false },
+      { answerText: ' An array is used to store key-value pairs, while an object is used to store a list of values', isCorrect: false },
+      { answerText: 'An array is ordered, while an object is unordered ', isCorrect: true },
+      { answerText: 'There is no difference between an array and an object in JavaScript ', isCorrect: false },
+    ],
+  },
+  {
+    questionText: 'Which data structure in JavaScript is used to store a collection of unique values? ',
+    answerOptions: [
+      { answerText: 'Array ', isCorrect: false },
+      { answerText: 'Object ', isCorrect: false },
+      { answerText: 'Map ', isCorrect: false },
+      { answerText: 'Set', isCorrect: true },
+    ],
+  },
+  {
     questionText: 'Which of the following is used to position an element relative to its closest positioned ancestor?',
     answerOptions: [
       { answerText: 'position: static', isCorrect: false },
@@ -247,7 +274,15 @@ answerOptions: [
     { answerText: 'A database management system', isCorrect: false },
     ],
     },
-    
+    {
+      questionText: 'What is the purpose of the useContext hook in React?',
+      answerOptions: [
+        { answerText: 'To provide access to a context object at any level of a React component tree ', isCorrect: true },
+        { answerText: 'To manage component lifecycle events', isCorrect: false },
+        { answerText: 'To manage global state changes in a React application ', isCorrect: false },
+        { answerText: 'To manage local state changes in a functional component', isCorrect: false },
+      ],
+    },
     {
     questionText: 'What is the purpose of the render method in a React component?',
     answerOptions: [
@@ -257,7 +292,15 @@ answerOptions: [
     { answerText: 'To fetch data from a server', isCorrect: false },
     ],
     },
-    
+    {
+      questionText: 'What is the difference between useMemo and useCallback hooks in React? ',
+      answerOptions: [
+        { answerText: 'useCallback is used to memoize a function, while useMemo is used to memoize a value ', isCorrect: true },
+        { answerText: 'useMemo is used to memoize a function, while useCallback is used to memoize a value  ', isCorrect: false },
+        { answerText: 'There is no difference between useMemo and useCallback hooks in React ', isCorrect: false },
+        { answerText: 'useMemo is used to manage local state changes in a functional component, while useCallback is used to manage global state changes ', isCorrect: false },
+      ],
+    },
     {
     questionText: 'What is the purpose of the componentDidMount method in a React component?',
     answerOptions: [
@@ -266,6 +309,15 @@ answerOptions: [
     { answerText: 'To handle user input', isCorrect: false }, 
     { answerText: 'To perform actions after the component has mounted', isCorrect: true },
     ],
+    },
+    {
+      questionText: 'What is the time complexity of the push method for arrays in JavaScript? ',
+      answerOptions: [
+        { answerText: 'O(1)', isCorrect: true },
+        { answerText: 'O', isCorrect: false },
+        { answerText: 'O(log n) ', isCorrect: false },
+        { answerText: 'O(n^2)', isCorrect: false },
+      ],
     },
   ]
 
