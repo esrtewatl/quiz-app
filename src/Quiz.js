@@ -7,12 +7,17 @@ const Quiz = ({ questions }) => {
   const [showScore, setShowScore] = useState(false);
   const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null);
   const [correctAnswerIndex, setCorrectAnswerIndex] = useState(null);
+  const [wrongAnswerIndex, setWrongAnswerIndex] = useState(null);
 
   const handleAnswerOptionClick = (isCorrect, answerIndex) => {
-    setSelectedAnswerIndex(answerIndex);
-    if (isCorrect) {
-      setCorrectAnswerIndex(answerIndex);
-      setScore(score + 1);
+    if (selectedAnswerIndex === null) {
+      setSelectedAnswerIndex(answerIndex);
+      if (isCorrect) {
+        setCorrectAnswerIndex(answerIndex);
+        setScore(score + 1);
+      } else {
+        setWrongAnswerIndex(answerIndex);
+      }
     }
   };
 
@@ -22,40 +27,45 @@ const Quiz = ({ questions }) => {
       setCurrentQuestion(nextQuestion);
       setSelectedAnswerIndex(null);
       setCorrectAnswerIndex(null);
+      setWrongAnswerIndex(null);
     } else {
       setShowScore(true);
     }
   };
 
   return (
-    <div className="quiz">
-      {showScore ? (
-        <div className="quiz-score">
-          You scored {score} out of {questions.length} questions.
-        </div>
-      ) : (
-        <>
-          <div className="quiz-question">
-            {questions[currentQuestion].questionText}
+    <div className='body'>
+      <div className="quiz">
+        {showScore ? (
+          <div className="quiz-score">
+            You scored {score} out of {questions.length} questions.
           </div>
-          <div className="quiz-answer-options">
-            {questions[currentQuestion].answerOptions.map((answerOption, index) => (
-              <div
-                key={index}
-                className={`quiz-answer-option ${selectedAnswerIndex === index ? 'selected' : ''} ${correctAnswerIndex === index ? 'correct' : ''} ${selectedAnswerIndex === index && correctAnswerIndex !== index ? 'incorrect' : ''}`}
-                onClick={() => handleAnswerOptionClick(answerOption.isCorrect, index)}
-              >
-                {answerOption.answerText}
-              </div>
-            ))}
-          </div>
-          {selectedAnswerIndex !== null && (
-            <button className="quiz-next-question" onClick={handleNextQuestionClick}>
+        ) : (
+          <>
+            <div className="quiz-question">
+              {questions[currentQuestion].questionText}
+            </div>
+            <div className="quiz-answer-options">
+              {questions[currentQuestion].answerOptions.map((answerOption, index) => (
+                <div
+                  key={index}
+                  className={`quiz-answer-option ${selectedAnswerIndex === index ? 'selected' : ''} ${correctAnswerIndex === index ? 'correct' : ''} ${wrongAnswerIndex === index ? 'wrong' : ''}`}
+                  onClick={() => handleAnswerOptionClick(answerOption.isCorrect, index)}
+                >
+                  {answerOption.answerText}
+                </div>
+              ))}
+            </div>
+            <button
+              className={`quiz-next-question ${selectedAnswerIndex === null ? 'disabled' : ''}`}
+              onClick={handleNextQuestionClick}
+              disabled={selectedAnswerIndex === null}
+            >
               Next Question
             </button>
-          )}
-        </>
-      )}
+          </>
+        )}
+      </div>
     </div>
   );
 };
